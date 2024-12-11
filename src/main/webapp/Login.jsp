@@ -8,43 +8,32 @@
 
     <style>
         body {
-            background: linear-gradient(45deg, #3498db, #2ecc71);
-            background-size: 400% 400%;
-            animation: gradientAnimation 10s ease infinite;
+            background-image: url('https://img.freepik.com/premium-photo/success-marketing-concept_670147-47780.jpg?w=900'); /* Background image added */
+            background-size: cover; /* Ensures the image covers the full screen */
+            background-position: center center; /* Centers the image */
+            background-attachment: fixed; /* Keeps the background fixed during scroll */
+            color: #333333; /* Dark gray text for contrast */
             height: 100vh;
             margin: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Arial', sans-serif;
-            color: #333; /* Darker text color */
-        }
-
-        @keyframes gradientAnimation {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+            color: #495057; /* Neutral text color */
         }
 
         .card {
-            background-color: rgba(255, 255, 255, 0.9);
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white card */
+            border: 1px solid #dee2e6; /* Light border */
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            backdrop-filter: blur(10px); /* Apply blur effect */
         }
 
         .card-header {
-            background-color: #2980b9;
-            color: #fff;
-            border-radius: 10px 10px 0 0;
+            background-color: #2f4f4f; /* Blue header */
+            color: #ffffff; /* White text */
+            border-radius: 15px 15px 0 0;
             padding: 15px;
             text-align: center;
         }
@@ -55,28 +44,45 @@
 
         h3 {
             margin-bottom: 20px;
-            color: #333;
+            color: #f8f8ff; /* Blue headings */
         }
 
         .form-control {
-            border-radius: 5px;
+            border: 1px solid #ced4da; /* Neutral border */
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        .form-control:focus {
+            border-color: #fffff0;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
         }
 
         label {
-            color: #333; /* Darker label color */
+            color: #495057; /* Neutral label color */
+            font-weight: bold;
         }
 
         .btn-primary {
-            background-color: #2980b9;
+            background-color: #2f4f4f;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
+            padding: 10px 15px;
+            font-size: 14px;
+            transition: background-color 0.2s ease;
         }
 
         .btn-primary:hover {
-            background-color: #1c6385;
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        #passwordMismatchError {
+            font-size: 12px;
+            font-weight: bold;
+            color: #dc3545; /* Red error text */
         }
     </style>
-    <%@ include file="GlassNavbar.jsp" %>
 </head>
 
 <body>
@@ -85,23 +91,20 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Education Login</h3>
+                        <h3>LMS LOGIN</h3>
                     </div>
                     <div class="card-body">
                         <form id="loginForm" action="checklogin" method="post">
                             <div class="mb-3">
-                                <label for="ID" class="form-label">Student ID</label>
+                                <label for="ID" class="form-label">ID</label>
                                 <input type="text" class="form-control" id="id" name="id" required>
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control" id="password" name="pwd" required>
                             </div>
-                            <div class="mb-3">
-                                <label for="retypePassword" class="form-label">Retype Password</label>
-                                <input type="password" class="form-control" id="retypePassword" name="retypePassword" required>
-                            </div>
-                            <div class="mb-3" id="passwordMismatchError" style="color: red;"></div>
+                          
+                            <div class="mb-3" id="passwordMismatchError" style="color: #6c757d;"></div>
                             <button type="submit" class="btn btn-primary" onclick="return validateForm()">Login</button>
                         </form>
                     </div>
